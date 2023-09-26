@@ -4,24 +4,37 @@ function Student(name, gender, age) {
     this.age = age;
     this.marks = [];  
 }
-new Student("Maks", "male", "17");
-new Student("Gena", "male", "18");
-new Student("Masha", "female", "15");
+let student1 = new Student("Maks", "male", "17");
+let student2 = new Student("Gena", "male", "18");
+let student3 = new Student("Masha", "female", "15");
 
 Student.prototype.setSubject = function (subjectName) {
-  //по инструкции к домашнему заданию весь пункт два уже был выполнен
+  this.subject = subjectName;
 }
+
 
 Student.prototype.addMarks = function (...marks) {
-    if (marks in Student) {
-    addMarks(...marksToAdd).push.Student.marks;
-    }
+  if(this.hasOwnProperty('marks')) {
+    this.marks.push(...marks);
+  }
 }
 
-Student.prototype.getAverage = function () {
-  
+
+
+Student.prototype.getAverage = (marks) => {
+  if(this.hasOwnProperty('marks') && marks.length !== 0) {
+    let sum = 0; 
+    for (let i = 0; i < marks.length; i += 1) { 
+    sum += marks[i];
+    }
+    return sum / marks.length; 
+  } else {
+    return 0;
+  }
 }
 
 Student.prototype.exclude = function (reason) {
-  
+  delete this.subject;
+  delete this.marks;
+  this.excluded = reason;
 }
