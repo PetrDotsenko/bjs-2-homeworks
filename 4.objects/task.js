@@ -21,13 +21,13 @@ Student.prototype.addMarks = function (...marks) {
 
 
 
-Student.prototype.getAverage = (marks) => {
-  if(this.hasOwnProperty('marks') && marks.length !== 0) {
+Student.prototype.getAverage = function () {
+  if(this.hasOwnProperty('marks') && this.marks.length !== 0) {
     let sum = 0; 
-    for (let i = 0; i < marks.length; i += 1) { 
-    sum += marks[i];
+    for (let i = 0; i < this.marks.length; i += 1) { 
+    sum += this.marks[i];
     }
-    return sum / marks.length; 
+    return sum / this.marks.length; 
   } else {
     return 0;
   }
