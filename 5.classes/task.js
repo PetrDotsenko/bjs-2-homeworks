@@ -69,27 +69,38 @@ class Library {
         this.name = name;
         this.books = books;
     }
+
+    findBookBy = function (type, value) {  
+        let book = this.books.find(item => item[type] == value);
+        if (book !== undefined) {
+            return book;
+        } else {
+            return null;
+        }
+    }
+    giveBookByName = function (bookName) {
+        let book = this.books.find(item => item.name == bookName);
+        if (book === undefined) {
+            return null;
+        }
+        delete this.books.book;
+        return book;
+    }    
 }
 
 Library.prototype.addBook = function (book) {
-    if(this.book.state > 30) {
+    if(book.state > 30) {
         this.books.push(book);
     }
-  }
+}
 
-  Library.prototype.findBookBy = function (type, value) {
-    if (/* type равен какому-нибудь свойству книги*/ type === value)  {
-        return this.book;
-    } else {
-        return null;
-    }
-  }
+/*
+Library.prototype.giveBookByName = function (bookName) {
 
-  Library.prototype.giveBookByName = function (bookName) {
     if (bookName in this.books) {
         delete this.books["bookName"];
         return bookName;
     } else {
         return null;
     }
-  }
+} */
