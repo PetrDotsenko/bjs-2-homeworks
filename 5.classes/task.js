@@ -79,12 +79,12 @@ class Library {
         }
     }
     giveBookByName = function (bookName) {
-        let book = this.books.find(item => item.name == bookName);
-        if (book === undefined) {
+        const findBookIndex = this.books.findIndex(item => item.name === bookName);
+
+        if (findBookIndex === -1) {
             return null;
         }
-        delete this.books.book;
-        return book;
+        return this.books.splice(findBookIndex, 1)[0];
     }    
 }
 
@@ -103,4 +103,14 @@ Library.prototype.giveBookByName = function (bookName) {
     } else {
         return null;
     }
-} */
+} 
+
+giveBookByName = function (bookName) {
+        let book = this.books.find(item => item.name == bookName);
+        if (book === undefined) {
+            return null;
+        }
+        delete this.books.book;
+        return book;
+    }    
+*/
